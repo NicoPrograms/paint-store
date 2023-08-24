@@ -1,46 +1,52 @@
-import CartWidget from "./CartWidget"
+import CartWidget from "./CartWidget";
 import {
-  Menu,
-  MenuButton,
-  MenuList,
+  BreadcrumbItem,
+  Breadcrumb,
+  BreadcrumbLink,
   MenuItem,
-  Flex, Box, Spacer, Center,
-  
-} from '@chakra-ui/react'
+  Flex,
+  Box,
+  Spacer,
+  Text,
+} from "@chakra-ui/react";
 
 const NavBar = () => {
   return (
-    <>
-      <nav className="navbar">
-        <Flex>
-          <Box p='4'>
-            <div className="navbar-title">Gallery Portal</div>
-          </Box>
-          <Spacer />
-          <Box p='4'>
-            <div className="navbar-menu">
-                <Menu>
-                  <MenuButton>
-                    Sections
-                  </MenuButton>
-                  <MenuList>
-                    <MenuItem>Home</MenuItem>
-                    <MenuItem>About Us</MenuItem>
-                    <MenuItem>Gallery</MenuItem>
-                    <MenuItem>Contact</MenuItem>
-                  </MenuList>
-                </Menu>
-            </div>
-          </Box>
-          <Spacer />
-          <Box p='4'>
-            <CartWidget />
-          </Box>
-        </Flex> 
-      </nav>
-        
-    </>
-  )
-}
+    <nav className="navbar">
+      <Flex alignItems="center">
+        <Box p="4">
+          <div className="navbar-title">
+            <Text fontSize="2xl">Gallery Portal</Text>
+          </div>
+        </Box>
+        <Box p="4">
+          <div className="navbar-menu">
+            <Breadcrumb separator="-">
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#home">Home</BreadcrumbLink>
+              </BreadcrumbItem>
 
-export default NavBar
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#about">About</BreadcrumbLink>
+              </BreadcrumbItem>
+
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#gallery">Gallery</BreadcrumbLink>
+              </BreadcrumbItem>
+
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#contact">Contact</BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
+          </div>
+        </Box>
+        <Spacer />
+        <Box p="4">
+          <CartWidget />
+        </Box>
+      </Flex>
+    </nav>
+  );
+};
+
+export default NavBar;
