@@ -1,19 +1,19 @@
-import { Center, Text, Divider, Box, VStack, StackDivider} from "@chakra-ui/react";
+import { Center, Text, Divider, Box, Flex, StackDivider} from "@chakra-ui/react";
 import ItemCount from "./ItemCount";
 
-const ItemListContainer = ({greeting, welcome, about, shipping, security, quality}) => {
+const ItemListContainer = ({greeting, welcome, about, shipping, security, quality, contact}) => {
   return (
     <>
-
+      <Box bg='#fdecda' minHeight='100vh'>
         <div className="home" id="home">
-          <Center h='120px' color='black'>
-            <Text fontSize="2xl">{greeting}</Text>
+          <Center h='120px'>
+            <Text fontSize="2xl" marginTop="100">{greeting}</Text>
           </Center>
-          <Center color='black'>
-            <h2>{welcome}</h2>
+          <Center>
+            <Text marginTop="50">{welcome}</Text>
           </Center>
         </div>
-        <Divider py="3" borderColor='grey.200' />
+        <Divider py="3" borderColor='grey.200' marginTop="300"/>
         <div className="about-us" id="about">
           <Text m="4" p="3">{about}</Text>
         </div>
@@ -27,6 +27,12 @@ const ItemListContainer = ({greeting, welcome, about, shipping, security, qualit
           </ul>
         </div>
         <ItemCount />
+        <div className="contact" id="contact" style={{ display: 'flex', justifyContent: 'center' }}>
+            <Box bg='black' h='100' w='100%' p={4} color='white'>
+              <Text color='white'>{contact}</Text>
+            </Box>
+        </div>
+      </Box>
       
     </>
   )

@@ -9,7 +9,8 @@ const App = () => {
       about={"We are the first online store that offers shipping, security and speed in your purchase. Giving you the confidence that the paint will arrive at your home in perfect condition."}
       security={"We guarantee a perfect shipment of the painting. With all the care"}
       shipping={"Worldwide shipping"}
-      quality={"100% authentic painting"}/>
+      quality={"100% authentic painting"}
+      contact={"nicolasseia0@gmail.com"}/>
     </>
   )
 }

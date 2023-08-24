@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {Center, Text, Spacer, Flex} from "@chakra-ui/react";
+import {Center, Text, Stack, Button} from "@chakra-ui/react";
 
 const ItemCount = () => {
 
@@ -31,12 +31,12 @@ const ItemCount = () => {
     <>
         <div className="count">
             <Center p="200">
-                <Flex alignItems="center">
-                    <button onClick={res}><Text fontSize="2xl">-</Text></button>
+                <Stack direction='row' spacing={4} align='center'>
+                    <Button colorScheme='black' variant='outline' onClick={res}><Text fontSize="2xl">-</Text></Button>
                     <Text fontSize="2xl"  mx="4">{count}</Text>
-                    <button onClick={sum}><Text fontSize="2xl">+</Text></button>          
-                    <button onClick={onAdd}><Text fontSize="2xl" marginLeft="4">BUY</Text></button>
-                </Flex>
+                    <Button colorScheme='black' variant='outline' onClick={sum}><Text fontSize="2xl">+</Text></Button>          
+                    <Button colorScheme='black' variant='outline' onClick={onAdd}><Text fontSize="2xl" marginLeft="2">BUY</Text></Button>
+                </Stack>
             </Center>
             
         </div>
