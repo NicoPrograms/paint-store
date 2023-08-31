@@ -1,7 +1,20 @@
 import { Center, Text, Divider, Box, Flex, StackDivider} from "@chakra-ui/react";
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
-const ItemListContainer = ({greeting, welcome, about, shipping, security, quality, contact}) => {
+const ItemListContainer = ({greeting, welcome, about, shipping, security, quality, contact, products}) => {
+
+const showProducts = new Promise((resolve, reject) => {
+  if(products.length > 0){
+    setTimeout(() => {
+      resolve(products)
+    }, 3000);
+  }
+  else {
+    reject("Not products found")
+  }
+})
+
   return (
     <>
       <Box bg='#fdecda' minHeight='100vh'>
@@ -26,10 +39,13 @@ const ItemListContainer = ({greeting, welcome, about, shipping, security, qualit
             <Divider p="3" borderColor='grey.200' />
           </ul>
         </div>
+        <ItemList products={products}/>
         <ItemCount />
-        <div className="contact" id="contact" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="contact" id="contact">
             <Box bg='black' h='100' w='100%' p={4} color='white'>
-              <Text color='white'>{contact}</Text>
+              <Center>
+                <Text color='white'>{contact}</Text>
+              </Center>
             </Box>
         </div>
       </Box>
