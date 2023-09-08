@@ -1,4 +1,5 @@
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 import {
   BreadcrumbItem,
   Breadcrumb,
@@ -16,26 +17,30 @@ const NavBar = () => {
       <Flex alignItems="center">
         <Box p="4">
           <div className="navbar-title">
-            <Text fontSize="2xl">Gallery Portal</Text>
+            <Link to={'/'}>
+              <Text fontSize="2xl">Gallery Portal</Text>
+            </Link>           
           </div>
         </Box>
         <Box p="4">
           <div className="navbar-menu">
             <Breadcrumb separator="-">
               <BreadcrumbItem>
-                <BreadcrumbLink href="#home">Home</BreadcrumbLink>
+                <Link to={'/about'}>
+                  <BreadcrumbLink>About</BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
 
               <BreadcrumbItem>
-                <BreadcrumbLink href="#about">About</BreadcrumbLink>
+                <Link to={'/gallery'}>
+                  <BreadcrumbLink>Gallery</BreadcrumbLink>
+                </Link>  
               </BreadcrumbItem>
 
               <BreadcrumbItem>
-                <BreadcrumbLink href="#gallery">Gallery</BreadcrumbLink>
-              </BreadcrumbItem>
-
-              <BreadcrumbItem>
-                <BreadcrumbLink href="#contact">Contact</BreadcrumbLink>
+                <Link to={'/contact'}>
+                  <BreadcrumbLink>Contact</BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
             </Breadcrumb>
           </div>
