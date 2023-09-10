@@ -5,6 +5,10 @@ import {
   Breadcrumb,
   BreadcrumbLink,
   MenuItem,
+  Menu,
+  MenuButton,
+  MenuList,
+  Button,
   Flex,
   Box,
   Spacer,
@@ -25,6 +29,12 @@ const NavBar = () => {
         <Box p="4">
           <div className="navbar-menu">
             <Breadcrumb separator="-">
+            <BreadcrumbItem>
+                <Link to={'/home'}>
+                  <BreadcrumbLink>Home</BreadcrumbLink>
+                </Link>
+              </BreadcrumbItem>
+
               <BreadcrumbItem>
                 <Link to={'/about'}>
                   <BreadcrumbLink>About</BreadcrumbLink>
@@ -32,22 +42,29 @@ const NavBar = () => {
               </BreadcrumbItem>
 
               <BreadcrumbItem>
-                <Link to={'/gallery'}>
-                  <BreadcrumbLink>Gallery</BreadcrumbLink>
-                </Link>  
-              </BreadcrumbItem>
-
-              <BreadcrumbItem>
                 <Link to={'/contact'}>
                   <BreadcrumbLink>Contact</BreadcrumbLink>
                 </Link>
               </BreadcrumbItem>
+              <BreadcrumbItem>
+                <Menu>
+                  <MenuButton>Categories</MenuButton>
+                  <MenuList>
+                    <Link to={`/category/${"Forests"}`}><MenuItem>Forests</MenuItem></Link>
+                    <Link to={`/category/${"Landscapes"}`}><MenuItem>Landscapes</MenuItem></Link>
+                    <Link to={`/category/${"Others"}`}><MenuItem>Others</MenuItem></Link>
+                  </MenuList>
+                </Menu>
+              </BreadcrumbItem>
+              
             </Breadcrumb>
           </div>
         </Box>
         <Spacer />
         <Box p="4">
-          <CartWidget />
+          <Link to={'/cart'}>
+            <CartWidget />
+          </Link>
         </Box>
       </Flex>
     </nav>

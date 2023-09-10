@@ -15,8 +15,6 @@ const ItemList = ({products}) => {
                             key={product.id}
                             title={product.title}
                             image={product.image}
-                            description={product.description}
-                            price={product.price}
                         />
                     ))}
                 </Grid>

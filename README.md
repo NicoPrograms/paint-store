@@ -1,8 +1,16 @@
-# React + Vite
+# Gallery Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Introduction
 
-Currently, two official plugins are available:
+Welcome to my eCommerce, the result of a React project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+------------
+
+### Description
+
+On the page you can find an example of an eCommerce, which is based on the sale of paints. You will be able to navigate in the categories you want, and you will be able to see the functionality of the whole project, from how to search for your product to checkout.
+
+------------
+
+##### Example
