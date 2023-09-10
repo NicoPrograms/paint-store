@@ -12,9 +12,7 @@ const ItemList = ({products}) => {
                 <Grid templateColumns={['1fr', '1fr', '1fr', 'repeat(3, 1fr)']} gap={14} mt='40'>
                     {products.map((product) => (
                         <Item
-                            key={product.id}
-                            title={product.title}
-                            image={product.image}
+                            products={product} key={product.id}
                         />
                     ))}
                 </Grid>

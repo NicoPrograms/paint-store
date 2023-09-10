@@ -1,5 +1,5 @@
 import { Center, Text, Divider, Box, Flex, StackDivider} from "@chakra-ui/react";
-import ItemCount from "./ItemCount";
+import ItemCount from "../ItemDetailContainer/ItemCount";
 import ItemList from "./ItemList";
 import { Link, useParams } from "react-router-dom";
 

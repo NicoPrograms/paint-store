@@ -3,12 +3,13 @@ import {
     Box, Image, Card, CardBody, CardFooter, Button, ButtonGroup, Text, Stack, Heading, Divider, Center
   } from "@chakra-ui/react";
   import { useParams } from 'react-router-dom';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({products}) => {
 
     const { id } = useParams()
 
-    const filteredProducts = products.filter((product) => product.id === id)
+    const filteredProducts = products.filter((product) => product.id == id)
 
   return (
     <>
@@ -38,11 +39,12 @@ const ItemDetail = ({products}) => {
                                         </CardBody>
                                         <Divider />
                                         <CardFooter>
-                                            <ButtonGroup spacing='2'>
+                                            <ItemCount />
+                                            {/* <ButtonGroup spacing='2'>
                                                 <Button variant='solid' style={{ backgroundColor: '#e1cfbc', color: 'black' }}>
                                                     Details
                                                 </Button>
-                                            </ButtonGroup>
+                                            </ButtonGroup> */}
                                         </CardFooter>
                                     </Card>
                             </Box>

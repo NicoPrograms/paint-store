@@ -30,14 +30,14 @@ const ItemCount = () => {
   return (
     <>
         <div className="count">
-            <Center p="200">
+
                 <Stack direction='row' spacing={4} align='center'>
                     <Button colorScheme='black' variant='outline' onClick={res}><Text fontSize="2xl">-</Text></Button>
-                    <Text fontSize="2xl"  mx="4">{count}</Text>
+                    <Text fontSize="2xl"  mx="1">{count}</Text>
                     <Button colorScheme='black' variant='outline' onClick={sum}><Text fontSize="2xl">+</Text></Button>          
-                    <Button colorScheme='black' variant='outline' onClick={onAdd}><Text fontSize="2xl" marginLeft="2">BUY</Text></Button>
+                    <Button colorScheme='black' variant='outline' onClick={onAdd}><Text fontSize="2xl">BUY</Text></Button>
                 </Stack>
-            </Center>
+
             
         </div>
     </>
