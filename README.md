@@ -14,4 +14,6 @@ On the page you can find an example of an eCommerce, which is based on the sale 
 ------------
 
 ##### Example
-![You can see how DOM is implemented](assets/gif.mp4)
+![You can see how DOM is implemented](src/assets/gif.mp4)
+
+
