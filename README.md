@@ -15,5 +15,4 @@ On the page you can find an example of an eCommerce, which is based on the sale 
 
 ##### Example
 
-
-<video src="src/assets/gif.mp4" controls title="Title"></video>
+![Yo can see how DOM is implemented](https://media.giphy.com/media/ToexVlL8JA2F87e0TS/giphy.gif)
