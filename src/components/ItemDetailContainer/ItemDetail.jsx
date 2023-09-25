@@ -5,6 +5,7 @@ import {
   import { useParams } from 'react-router-dom';
 import ItemCount from './ItemCount';
 
+
 const ItemDetail = ({products}) => {
 
     const { id } = useParams()
@@ -39,7 +40,7 @@ const ItemDetail = ({products}) => {
                                         </CardBody>
                                         <Divider />
                                         <CardFooter>
-                                            <ItemCount />
+                                            <ItemCount filteredProducts={p} />
                                             {/* <ButtonGroup spacing='2'>
                                                 <Button variant='solid' style={{ backgroundColor: '#e1cfbc', color: 'black' }}>
                                                     Details

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import {Center, Text, Stack, Button} from "@chakra-ui/react";
+import { CartContext } from "../../context/ShoppingCartContext";
 
-const ItemCount = () => {
+const ItemCount = ({ filteredProducts }) => {
 
     const [count, setCount] = useState(0)
 
@@ -23,8 +24,20 @@ const ItemCount = () => {
         }
     }
 
+    const { cart, setCart} = useContext(CartContext)
+
+
     const onAdd = () => {
+        if (count > 0) {
+            const productToAdd = {
+                product: filteredProducts,
+                quantity: count
+            };
+    
+            setCart([...cart, productToAdd]);
+        }
         alert(count)
+        
     }
 
   return (

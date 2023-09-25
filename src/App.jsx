@@ -7,19 +7,31 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import CartWidget from "./components/NavBar/CartWidget";
+import Form from "./components/Form";
+import Cart from "./components/Cart";
+import ShoppingCartContext from "./context/ShoppingCartContext"
 import image1 from './assets/1.jpg';
 import image2 from './assets/2.jpg';
 import image3 from './assets/3.jpg';
 import image4 from './assets/4.jpg';
 import image5 from './assets/5.jpg';
+import ComponentA from "./components/ComponentA";
+
 
 
 
 
 const App = () => {
   return (
+    <>
+
+    <ShoppingCartContext>
+
+    
+
     <BrowserRouter>
       <NavBar />
+      
 
       <Routes>
         <Route exact path="/home" element={<Home greeting={'Hi! Welcome to Gallery Portal'} welcome={"Here you can find your favorite painting. It's amazing, go ahead, enjoy the experience."} />} />
@@ -44,11 +56,15 @@ const App = () => {
           {id: 3, title: "Lake", description: "Immerse yourself in the forest.", price: 700, image: image3, category: "Forests"},
           {id: 4, title: "Field", description: "A view that takes you to the purest and most peaceful of places.", price: 600, image: image4, category: "Landscapes"},
           {id: 5, title: "Flowers", description: "A painting that sings just by looking at it.", price: 400, image: image5, category: "Others"}]}/>} />
-        <Route exact path="/cart" element={<CartWidget />} />
+        <Route exact path="/cart" element={<Cart />} />
 
       </Routes>
       
     </BrowserRouter>
+
+    </ShoppingCartContext>
+
+    </>
   )
 }
 
