@@ -28,11 +28,6 @@ html {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .navbar {
-
-    }
-}
 
 .input-field {
     margin-bottom: 10px;
