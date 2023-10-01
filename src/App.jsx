@@ -57,6 +57,7 @@ const App = () => {
           {id: 4, title: "Field", description: "A view that takes you to the purest and most peaceful of places.", price: 600, image: image4, category: "Landscapes"},
           {id: 5, title: "Flowers", description: "A painting that sings just by looking at it.", price: 400, image: image5, category: "Others"}]}/>} />
         <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/form" element={<Form />} />
 
       </Routes>
       

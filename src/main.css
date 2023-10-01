@@ -51,3 +51,49 @@ html {
     font-size: 16px;
     cursor: pointer;
 }
+
+.item-style {
+    display: flex;
+    align-items: center;
+}
+
+.item-style-img {
+    margin-left: 120px;
+    margin-right: 20px; 
+    width: 100px; 
+}
+
+.item-style-title {
+    flex-grow: 1; 
+    font-weight: bold; 
+}
+
+.item-style-quantity {
+    font-weight: bold;
+
+}
+
+.item-box {
+    max-width: 700px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.submit-button-cart {
+    background-color: #b08e6b;
+    color: #fff;
+    padding: 10px 80px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .item-box {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}

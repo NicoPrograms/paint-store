@@ -23,7 +23,8 @@ const Form = () => {
 
     return (
         <Center minH="100vh">
-            <Box width="400px" padding="20px" ml='auto' mr='40' mt='120' >
+            <Box width="400px" mt='120'>
+                <Center><Text fontStyle='oblique' textDecoration='underline' mb='10'>Fill in the form to complete the order</Text></Center>
                 <form onSubmit={handleSubmit}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="input-field" required />
@@ -36,7 +37,7 @@ const Form = () => {
                         <input type="text" placeholder="Number" value={number} onChange={(e) => setNumber(e.target.value)} className="input-field" required />
                         <input type="text" placeholder="Department" value={department} onChange={(e) => setDepartment(e.target.value)} className="input-field" />
                     </div>
-                    <button type="submit" className="submit-button">Submit</button>
+                    <Center><button type="submit" className="submit-button">Submit</button></Center>
                 </form>
             </Box>
         </Center>

@@ -1,13 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Box, Divider, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Divider, Flex } from "@chakra-ui/react";
+import { CartContext } from "../../context/ShoppingCartContext";
 
 
 
 const CartWidget = () => {
 
-    const [cartCount, setCartCount] = useState(0);
+  const { cartCount } = useContext(CartContext)
+
 
   return (
     <>

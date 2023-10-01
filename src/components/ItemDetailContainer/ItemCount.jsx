@@ -1,6 +1,8 @@
 import { useEffect, useState, useContext } from "react"
 import {Center, Text, Stack, Button} from "@chakra-ui/react";
 import { CartContext } from "../../context/ShoppingCartContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const ItemCount = ({ filteredProducts }) => {
 
@@ -24,20 +26,13 @@ const ItemCount = ({ filteredProducts }) => {
         }
     }
 
-    const { cart, setCart} = useContext(CartContext)
-
+    const { addItemToCart } = useContext(CartContext)
 
     const onAdd = () => {
-        if (count > 0) {
-            const productToAdd = {
-                product: filteredProducts,
-                quantity: count
-            };
-    
-            setCart([...cart, productToAdd]);
+        if (count > 0){
+            addItemToCart(filteredProducts, count)
         }
         alert(count)
-        
     }
 
   return (
@@ -48,7 +43,7 @@ const ItemCount = ({ filteredProducts }) => {
                     <Button colorScheme='black' variant='outline' onClick={res}><Text fontSize="2xl">-</Text></Button>
                     <Text fontSize="2xl"  mx="1">{count}</Text>
                     <Button colorScheme='black' variant='outline' onClick={sum}><Text fontSize="2xl">+</Text></Button>          
-                    <Button colorScheme='black' variant='outline' onClick={onAdd}><Text fontSize="2xl">BUY</Text></Button>
+                    <Button colorScheme='black' variant='outline' onClick={onAdd}><Text><FontAwesomeIcon icon={faShoppingCart} /></Text></Button>
                 </Stack>
 
             
