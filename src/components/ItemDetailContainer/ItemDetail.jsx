@@ -21,9 +21,6 @@ const ItemDetail = ({product}) => {
                                 />
                                 <Stack mt='6' spacing='3'>
                                 <Heading size='md'>{product.title}</Heading>
-                                <Text>
-                                    {product.description}
-                                </Text>
                                 <Text color='blue.600' fontSize='2xl'>
                                     ${product.price}
                                 </Text>
@@ -34,7 +31,16 @@ const ItemDetail = ({product}) => {
                                 <ItemCount product={product} />
                             </CardFooter>
                         </Card>
+                        
+                        <Box ml='10' border='1px solid black' p='10px' width='500px' height='auto'>
+                            <Center><Text fontStyle='italic' fontSize='2xl'>Product Description</Text></Center>
+                            <Divider />
+                            <Text fontSize='2xl'>
+                                {product.description}
+                            </Text>
+                        </Box>
                     </Box>
+                    
                 </Center>
             </Box>
         </div>
