@@ -1,15 +1,20 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
-import { Box, Button, Center, Text, Flex, SimpleGrid, Image, Divider } from '@chakra-ui/react';
+import { Box, Button, Center, Text, Flex, SimpleGrid, Image, Divider, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay, AlertDialogCloseButton, useDisclosure } from '@chakra-ui/react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
-    const { cart, cleanCart, cartTotalPrice, removeItemToCart } = useContext(CartContext);
+    const { cart, cleanCart, cartTotalPrice, removeItemToCart } = useContext(CartContext)
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
-    
+    // Función para limpiar el carrito con el AlertDialog
+    const handleCleanCart = () => {
+        onClose()
+        cleanCart()
+    }
 
     return (
         <>
@@ -58,7 +63,33 @@ const Cart = () => {
                         </Box>
                     </Flex>
                     <Flex justifyContent="flex-start" ml='40' my='15'>
-                        <button type="submit" className="submit-button" onClick={cleanCart}>Clean Cart</button>
+                        <AlertDialog
+                            isOpen={isOpen}
+                            leastDestructiveRef={null}
+                            onClose={onClose}
+                        >
+                            <AlertDialogOverlay>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+                                        Clean Cart
+                                    </AlertDialogHeader>
+                                    <AlertDialogBody>
+                                        Are you sure you want to clean your cart? This action cannot be undone.
+                                    </AlertDialogBody>
+                                    <AlertDialogFooter>
+                                        <button type="submit" className="submit-button" onClick={onClose}>
+                                            Cancel
+                                        </button>
+                                        <button type="submit" className="submit-button" onClick={handleCleanCart} ml={3}>
+                                            Clean
+                                        </button>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialogOverlay>
+                        </AlertDialog>
+                        <button type="submit" className="submit-button" onClick={onOpen}>
+                            Clean Cart
+                        </button>
                     </Flex>
                 </Box>
             </Box>
@@ -66,4 +97,4 @@ const Cart = () => {
     );
 }
 
-export default Cart
+export default Cart;

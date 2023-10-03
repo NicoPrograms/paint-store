@@ -9,11 +9,13 @@ const ItemList = ({products}) => {
     <>
         <div>
             <Center>
-                <Grid templateColumns={['1fr', '1fr', '1fr', 'repeat(3, 1fr)']} gap={14} mt='40'>
+                <Grid templateColumns={['1fr', '1fr', '1fr', 'repeat(3, 1fr)']} gap={14} mt='30'>
                     {products.map((product) => (
-                        <Item
-                            products={product} key={product.id}
-                        />
+                        <div key={product.id}>
+                            <Item
+                                products={product}
+                            />
+                        </div>
                     ))}
                 </Grid>
             </Center>

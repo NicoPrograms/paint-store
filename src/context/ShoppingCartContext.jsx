@@ -5,8 +5,8 @@ export const CartContext = createContext(null)
 const ShoppingCartProvider = ({ children }) => {
 
     const [ cart, setCart ] = useState([])
-    const [cartCount, setCartCount] = useState(0)
-    const [cartTotalPrice, setCartTotalPrice] = useState(0)
+    const [ cartCount, setCartCount ] = useState(0)
+    const [ cartTotalPrice, setCartTotalPrice ] = useState(0)
     
 
     //Liampiamos el carrito completamente
@@ -26,6 +26,7 @@ const ShoppingCartProvider = ({ children }) => {
       else {
         const newItem = { product, quantity }
         setCart([...cart, newItem])
+        
       }
     }
 

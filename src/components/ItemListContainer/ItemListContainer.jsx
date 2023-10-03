@@ -1,26 +1,27 @@
-import { Center, Text, Divider, Box, Flex, StackDivider} from "@chakra-ui/react";
-import ItemCount from "../ItemDetailContainer/ItemCount";
+import { Center, Text, Box, Divider} from "@chakra-ui/react";
 import ItemList from "./ItemList";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import {useEffect, useState} from 'react'
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
+import Loader from "../Loader";
 
-const ItemListContainer = ({products}) => {
+const ItemListContainer = () => {
 
-const showProducts = new Promise((resolve, reject) => {
-  if(products.length > 0){
-    setTimeout(() => {
-      resolve(products)
-    }, 2000);
-  }
-  else {
-    reject("Not products found")
-  }
-})
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true);
 
-showProducts
-  .then((res) =>{})
-  .catch((error) =>{
-    console.log(error)
-  })
+    useEffect(() => {
+        const db = getFirestore()
+
+        const itemCollection = collection(db, "paints")
+        getDocs(itemCollection).then((snapshot) => {
+            const docs = snapshot.docs.map((doc) => doc.data())
+            setProducts(docs)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    },[])
 
   const {category} = useParams()
 
@@ -29,8 +30,16 @@ showProducts
   return (
     <>
       <Box bg='#fdecda' minHeight='100vh'>
-        <Center><Text marginTop='150' fontSize='2xl'>You can find all available products here. Enjoy your search and don't hesitate to contact us for anything!</Text></Center>
-        <ItemList products={filteredProducts} />
+        {
+          loading ? ( <Loader /> ) : (
+            <>
+              <Center><Text marginTop='120' mb='5' fontSize='2xl'>You can find all available products here. Enjoy your search and don't hesitate to contact us for anything!</Text></Center>
+              <Divider borderColor='grey.200' />
+              <ItemList products={filteredProducts} />
+            </>
+          )
+        }
+        
       </Box>
     </>
   )

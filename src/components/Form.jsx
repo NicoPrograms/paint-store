@@ -1,25 +1,49 @@
-import React, { useState } from 'react';
-import { Box, Center, Text } from "@chakra-ui/react";
+import React, { useContext, useState } from 'react';
+import { Box, Center, Text, Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react";
+import { collection, addDoc, getFirestore } from "firebase/firestore"
+import { CartContext } from '../context/ShoppingCartContext';
 
 const Form = () => {
-    const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [email, setEmail] = useState("");
-    const [cardNumber, setCardNumber] = useState("");
-    const [date, setDate] = useState("");
-    const [cvv, setCVV] = useState("");
-    const [address, setAddress] = useState("");
-    const [number, setNumber] = useState("");
-    const [department, setDepartment] = useState("");
+    const [name, setName] = useState("")
+    const [surname, setSurname] = useState("")
+    const [email, setEmail] = useState("")
+    const [cardNumber, setCardNumber] = useState("")
+    const [date, setDate] = useState("")
+    const [cvv, setCVV] = useState("")
+    const [address, setAddress] = useState("")
+    const [number, setNumber] = useState("")
+    const [department, setDepartment] = useState("")
+    const [orderId, setOrderId] = useState(null)
+    const [showAlert, setShowAlert] = useState(false)
+
+    const { cart, cleanCart} = useContext(CartContext)
+
+    const db = getFirestore();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name === "" || surname === "" || email === "" || cardNumber === "" || date === "" || cvv === "" || address === "" || number === "") {
-            alert("Please fill in all fields");
+            alert("Please fill in all fields")
         } else {
-            alert("Form submitted");
+            addDoc(ordersCollection, order).then(({id}) => {
+                setOrderId(id)
+                setShowAlert(true)
+            });
         }
+        cleanCart();
     }
+
+    const order = {
+        buyer: {name, surname, email, address, number, department},
+        items: cart.map((item) => ({
+            id: item.product.id, 
+            title: item.product.title, 
+            price: item.product.price, 
+            quantity: item.quantity
+        })),
+    }
+
+    const ordersCollection = collection(db, "order")
 
     return (
         <Center minH="100vh">
@@ -39,6 +63,25 @@ const Form = () => {
                     </div>
                     <Center><button type="submit" className="submit-button">Submit</button></Center>
                 </form>
+                {showAlert && ( 
+                    <Alert
+                        status='success'
+                        variant='subtle'
+                        flexDirection='column'
+                        alignItems='center'
+                        justifyContent='center'
+                        textAlign='center'
+                        height='200px'
+                    >
+                        <AlertIcon boxSize='40px' mr={0} />
+                        <AlertTitle mt={4} mb={1} fontSize='lg'>
+                            Buy submitted!
+                        </AlertTitle>
+                        <AlertDescription maxWidth='sm'>
+                            Thanks for buying in GalleryPortal. Your order id is: {orderId}.
+                        </AlertDescription>
+                    </Alert>
+                )}
             </Box>
         </Center>
     );

@@ -1,5 +1,8 @@
 import React from 'react'
 import { Center, Text, Box } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMobile, faEnvelope, faSignature } from "@fortawesome/free-solid-svg-icons";
+
 
 const Contact = () => {
 
@@ -13,16 +16,16 @@ const Contact = () => {
       <Box bg='#fdecda' minHeight='100vh'>
             <div>
               <Center>
-                <Text color='black' marginTop='200' display='block' fontSize='2xl' fontWeight='bold'>{pageName}</Text>
+                <Text color='black' marginTop='200' display='block' fontSize='2xl' fontWeight='bold'><FontAwesomeIcon icon={faSignature} style={{ fontSize: '24px' }} /> {pageName}</Text>
               </Center>
               <Center>
                 <Text color='black' marginTop='10' display='block' fontWeight='bold'>{name}</Text>
               </Center>
               <Center>
-                <Text color='black' marginTop='10' display='block' fontWeight='bold'>{phone}</Text>
+                <Text color='black' marginTop='10' display='block' fontWeight='bold'><FontAwesomeIcon icon={faMobile} style={{ fontSize: '24px' }} /> {phone}</Text>
               </Center>
               <Center>
-                <Text color='black' marginTop='10' display='block' fontWeight='bold'>{email}</Text>
+                <Text color='black' marginTop='10' display='block' fontWeight='bold'><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '24px' }} />  {email}</Text>
               </Center>
             </div>
       </Box>
