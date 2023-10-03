@@ -22,7 +22,7 @@ These are the libraries that were used in the project:
 
 - Font Awesome, in charge of providing the icons to the page.
 
-##### Database
+#### Database
 
 As a database for this project we used Firebase, with a simple but useful management to store our products in the cloud and call them from the database, and on the other hand, was responsible for receiving the purchase information from the customer, taking care of saving the orders.
 
@@ -30,4 +30,4 @@ As a database for this project we used Firebase, with a simple but useful manage
 
 ##### A view of the page
 
-![Yo can see how DOM is implemented](https://media.giphy.com/media/ToexVlL8JA2F87e0TS/giphy.gif)
+![Yo can see how DOM is implemented](https://media.giphy.com/media/zLIQMPxkhxZGuZCfn9/giphy.gif)
